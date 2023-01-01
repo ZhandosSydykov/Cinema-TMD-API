@@ -1,0 +1,35 @@
+.box{
+  width: 60vw;
+  height: 70vh;
+  position: relative;
+}
+.a{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.prod{
+  width: 15vw;
+  height: 65%;
+  position: absolute;
+  bottom: -6vh;
+  left: 4vw;
+  border:1px solid white;
+  border-radius: 7px;
+
+}
+.text{
+  position: absolute;
+  text-align: end;
+  bottom: 2vh;
+  right: 0;
+  color: white;
+  padding: 20px;
+}
+.over{
+  margin-top: 6vh;
+  width: 60vw;
+  padding: 20px;
+}
+
+
