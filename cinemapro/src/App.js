@@ -4,16 +4,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Navbar, Container, Nav, NavDropdown, Row, Col, ListGroup} from "react-bootstrap";
 import {useState, useEffect} from "react";
 import axios from "axios";
-import CardList from "./CardList";
-import Tv_or_Cin from "./Tv_or_Cin";
-import Genremovie from "./Genremovie";
-import Opis from "./Opis";
-import Pers from "./Pers";
+import Cards from "./Cards";
+import TvAndCinema from "./Tv-and-Cinema";
+import Janr from "./Janr";
+import Opisanie from "./Opisanie";
+import Person from "./Person";
 
 
 function App() {
     const [genre, setGenre] = useState([])
-    const [bol,setBol] = useState(true)
+    const [box,setBox] = useState(true)
     const [genlist,setGenlist] = useState([])
     useEffect(() => {
         const a = axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=1ea54fff90d26ae7dc1f5e21fe637664&language=ru`)
@@ -49,13 +49,13 @@ function App() {
                                 style={{maxHeight: '100px'}}
                                 navbarScroll
                             >
-                                <Nav.Link href="#action1" as={Link} to={`/`} onClick={()=> setBol(true)}>Главная</Nav.Link>
-                                <Nav.Link href="#action2" as={Link} to={`/c/movie`} onClick={()=> setBol(true)}>Фильмы</Nav.Link>
-                                <Nav.Link href="#action2" as={Link} to={`/c/series`} onClick={()=> setBol(false)}>Сериалы</Nav.Link>
-                                <Nav.Link href="#action2" as={Link} to={`/c/person`} >Люди</Nav.Link>
+                                <Nav.Link href="#a1" as={Link} to={`/`} onClick={()=> setBox(true)}>Главная</Nav.Link>
+                                <Nav.Link href="#a2" as={Link} to={`/c/movie`} onClick={()=> setBox(true)}>Фильмы</Nav.Link>
+                                <Nav.Link href="#a2" as={Link} to={`/c/series`} onClick={()=> setBox(false)}>Сериалы</Nav.Link>
+                                <Nav.Link href="#a2" as={Link} to={`/c/person`} >Люди</Nav.Link>
                                 <NavDropdown title="Жанры TV" id="navbarScrollingDropdown">
                                     {genre.map(q => {
-                                        return <NavDropdown.Item href="#action3" as={Link} to={`/s/${q.id}`} onClick={()=> setBol(false)}>{q.name}</NavDropdown.Item>
+                                        return <NavDropdown.Item href="#action3" as={Link} to={`/s/${q.id}`} onClick={()=> setBox(false)}>{q.name}</NavDropdown.Item>
 
                                     })}
                                 </NavDropdown>
@@ -72,11 +72,11 @@ function App() {
                         marginTop: '7vh',
                         justifyContent: 'center',
                     }}><Routes>
-                        <Route path="/" element={<Tv_or_Cin name={setBol}/>}/>
-                        <Route path={`/c/:id`} element={<CardList/>}/>
-                        <Route path={`/s/:mod`} element={<Genremovie name={bol}/>}/>
-                        <Route path={`/opis/:tea`} element={<Opis name={bol}/>}/>
-                        <Route path={`/f/:adam`} element={<Pers/>}/>
+                        <Route path="/" element={<TvAndCinema name={setBox}/>}/>
+                        <Route path={`/c/:id`} element={<Cards/>}/>
+                        <Route path={`/s/:mod`} element={<Janr name={box}/>}/>
+                        <Route path={`/opis/:tea`} element={<Opisanie name={box}/>}/>
+                        <Route path={`/f/:adam`} element={<Person/>}/>
                     </Routes>
                     </div>
 
@@ -84,7 +84,7 @@ function App() {
                     <Col style={{marginTop: '8vh', marginRight: '5vh', width: '25vw'}}>
                         <ListGroup>
                             {genlist.map(q => {
-                                return  <ListGroup.Item as={Link} to={`/s/${q.id}`} onClick={()=> setBol(true)}>{q.name.slice(0,1).toUpperCase()+ q.name.slice(1).toLowerCase()}</ListGroup.Item>
+                                return  <ListGroup.Item as={Link} to={`/s/${q.id}`} onClick={()=> setBox(true)}>{q.name.slice(0,1).toUpperCase()+ q.name.slice(1).toLowerCase()}</ListGroup.Item>
                             })}
                         </ListGroup>
                     </Col>

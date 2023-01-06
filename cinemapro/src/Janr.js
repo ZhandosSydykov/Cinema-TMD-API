@@ -4,7 +4,7 @@ import {Link, useParams} from "react-router-dom";
 import {Card, Spinner} from "react-bootstrap";
 
 
-function Genremovie(props) {
+function Janr(props) {
     const {mod} = useParams()
     const [spin,setSpin] = useState(true)
     const [movie, setMovie] = useState([])
@@ -44,4 +44,4 @@ const a = axios.get(`https://api.themoviedb.org/3/discover/${props.name ? 'movie
     )
 }
 
-export default Genremovie
+export default Janr

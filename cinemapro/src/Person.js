@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {Card} from "react-bootstrap";
 
-function Pers() {
+function Person() {
     const {adam} = useParams()
     const [info, setInfo] = useState({})
     useEffect(()=>{
@@ -28,4 +28,4 @@ function Pers() {
     )
 
 }
-export default Pers
+export default Person

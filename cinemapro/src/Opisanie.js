@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import './App.css'
 
-function Opis(props) {
+function Opisanie(props) {
     const {tea} = useParams()
     const [info, setInfo] = useState({})
     const [spin,setSpin] = useState(true)
@@ -45,4 +45,4 @@ function Opis(props) {
     )
 }
 
-export default Opis
+export default Opisanie

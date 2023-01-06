@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {Link, useParams} from "react-router-dom";
 
-function CardList() {
+function Cards() {
     const {id} = useParams()
     const [card, setCard] = useState([])
     const [spin,setSpin] = useState(true)
@@ -46,4 +46,4 @@ function CardList() {
     )
 }
 
-export default CardList
+export default Cards

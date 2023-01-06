@@ -2,7 +2,7 @@ import Home from "./Home";
 import {useState} from "react";
 import {Spinner} from 'react-bootstrap'
 
-function Tv_or_Cin(props) {
+function TvAndCinema(props) {
     const [spin, setSpin] = useState(true)
     setTimeout(() => {
         setSpin(false)
@@ -24,4 +24,4 @@ function Tv_or_Cin(props) {
     )
 }
 
-export default Tv_or_Cin
+export default TvAndCinema
